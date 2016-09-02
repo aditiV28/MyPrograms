@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<script>
+	function validateForm()
+	{
+	
+	 var x = document.forms["Form"]["name"].value;
+	 var marks = document.forms["Form"]["marks"].value;
+	  
+	  if(x == null || x == "" || marks == "" || isNaN(marks))
+	  {
+		
+	    alert("Fill the correct data");
+		
+		return false;
+		
+	  }
+	 
+	}
+	
+	</script>
+	
+	<body>
+		
+		<!-- Form function to decide action and method" -->
+		
+		<form name="Form"  method="post" onsubmit="return validateForm()" action="display.php" >
+		
+		<!-- Text boxes to accept Name and Marks -->
+		Name:<br> 
+		<input  type ="text" id="name" name="name" value=""  placeholder="Name">
+		<br><br>
+		Marks:<br>
+		<input type ="text" name="marks" value=""  placeholder="Marks" >
+		
+		<!-- Submit button -->
+		<input type="submit" value="Submit" >
+		
+
+		</form>
+		
+
+	</body>
+	
+</html>

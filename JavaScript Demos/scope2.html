@@ -1,0 +1,24 @@
+<html>
+<body>
+<script>
+function send(name)
+{
+  return function ()
+  {
+	sendHi(name);
+  }
+}
+
+function sendHi(msg)
+{
+  console.log('Hello' + msg);
+}
+
+var func = send('Bill');
+func();  // You are calling sendHi hence even though it is a variable we are calling it with parenthesis
+
+sendHi('Pete');
+func();
+</script>
+</body>
+</html>

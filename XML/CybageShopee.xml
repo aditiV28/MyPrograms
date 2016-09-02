@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>   
+
+	<ProductData>
+		<Product ID="001" Type="Toy">
+			<Name> Doll </Name>
+			<Desciption> Barbie Doll </Desciption>
+			<Price> 500 </Price>
+			<Quantity> 10 </Quantity>
+		</Product>
+		
+		<Product ID="002" Type="Book">
+			<Name> The Namesake </Name>
+			<Desciption> Classic Novel </Desciption>
+			<Price> 450 </Price>
+			<Quantity> 15 </Quantity>
+		</Product>
+	</ProductData>
+			

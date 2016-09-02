@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>              <!-- Processing Instruction -->
+
+	<!-- Student Details -->
+	
+	<StudentDetails>                      <!-- Root Element -->
+		<Student ID="1">             <!-- Child element and attributes -->
+			<Name> Rahul </Name>
+			<Standard> 9 </Standard>      <!-- Content -->
+			<Division> A </Division>
+			<Hobby> Cricket </Hobby>
+			<Age> Age of the student is &lt; 17 </Age>   <!-- Entities -->
+		</Student>
+	</StudentDetails>

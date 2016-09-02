@@ -1,0 +1,30 @@
+<xs:schema attributeFormDefault="unqualified" 
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ elementFormDefault="qualified">
+  
+  <xs:element name="ProductData">
+    <xs:complexType>
+	
+      <xs:sequence>
+        <xs:element name="Product" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+		  <xs:restriction base="xs:float">
+		     <xs:minExclusive value="0"/>
+		  </xs:restriction>
+
+            <xs:sequence>
+              <xs:element type="xs:string" name="Name"/>
+              <xs:element type="xs:string" name="Description"/>
+              <xs:element type="xs:float" name="Price"/>
+			      
+              <xs:element type="xs:float" name="Quantity"/>
+            </xs:sequence>
+            <xs:attribute type="xs:byte" name="ID" use="optional"/>
+            <xs:attribute type="xs:string" name="Type" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+	  
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

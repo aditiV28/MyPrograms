@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1> Drop the image here </h1>
+
+ <style>
+div {
+    width: 300px;
+    border: 1px solid black;
+    padding: 25px;
+    margin: 25px;
+}
+</style> 
+
+<script>
+
+ function allowDrop(ev)
+{
+	ev.preventDefault();
+}
+
+function drag(ev)
+{
+	ev.dataTransfer.setData("text",ev.target.id);
+}
+
+function drop(ev)
+{
+	ev.preventDefault();
+	var data = ev.dataTransfer.getData("text");
+	ev.target.appendChild(document.getElementById(data));
+} 
+
+</script>
+
+</head>
+
+
+
+<body>
+<h1> Drag the image </h1>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+<br>
+<img id="drag1" src=".\VMWithInternet.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+<canvas id="example" width="200" height="200"> This text is displayed </canvas>
+<canvas id="mycanvas"></canvas>
+<script>
+var example = document.getElementById('example');
+var context = example.getContext('2d');
+context.fillStyle="rgb(255,0,0)";
+context.fillRect(30,30,50,50);
+var canvas = document.getElementById('mycanvas');
+if(canvas.getContext)
+{
+  var ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  ctx.moveTo(25,25);
+  ctx.lineTo(105,25);
+  ctx.lineTo(25,105);
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.moveTo(125,125);
+  ctx.lineTo(125,45);
+  ctx.lineTo(45,125);
+  ctx.closePath();
+  ctx.stroke();
+  }
+ 
+  
+</script>
+
+</body>
+</html>

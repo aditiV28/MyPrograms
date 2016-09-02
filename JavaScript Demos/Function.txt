@@ -1,0 +1,94 @@
+function AnimalTestUser()                              // Function taking different no of arguments
+{
+	var obj={};
+	obj.username = arguments[0];
+	otherArgs = new Array();
+		
+		for(var i=1;i<arguments.length;i++)
+		{
+			
+				otherArgs.push(arguments[i]);
+		}
+	obj.otherArgs=otherArgs;
+	return obj;
+		
+
+}
+var testSheep = new AnimalTestUser('Cottonball');
+/* console.log(testSheep);  */
+
+var testSheep1 = new AnimalTestUser('Cottonball', {'loves dancing':true}, [1,2,3]);
+/* console.log(testSheep1); 
+console.log(testSheep1.otherArgs); */
+
+
+function AnimalCreater(username,species,tagline,noises)          // Constructor function returning an object
+{
+	this.username=username;
+	this.species=species;
+	this.tagline=tagline;
+	this.noises=noises;
+	
+}
+
+var sheep = new AnimalCreater('Cloud','sheep','You can count on me',['bah','arrg','cheww']);
+console.log(sheep);
+
+sheep.friends = [];
+/* console.log(sheep); */
+
+
+function addFriend(object1,object2)
+{	 object1.friends = object2;
+		//object1.friends = object2.username;
+
+}
+
+var cow = new AnimalCreater('Dolly','Cow','I go Mooo',['moo','moomoo']);
+addFriend(sheep,cow);
+/* console.log(sheep); */
+
+var myFarm = [];
+
+function addInFarm(object3)
+{
+	myFarm.push(object3);
+
+	/* for(var i in myFarm)
+	{
+		for(var j in object3)
+		{
+			if(object3.hasOwnProperty(j))
+			{
+				console.log(j + ':' +myFarm[i][j]);
+			}
+		}
+	} */
+} 
+
+var cat = new AnimalCreater('fluffy','cat','I go Meow',['meow','mewww']);
+var dog = new AnimalCreater('tommy','dog','I like bones',['bhoo','bark']);
+var mouse = new AnimalCreater('stuart','mouse','I like cheese',['ewww','kirk']);
+
+
+addFriend(cat,sheep);
+addFriend(dog,cow);
+addFriend(mouse,cow);
+addInFarm(cat);
+addInFarm(dog);
+addInFarm(mouse);
+/* console.log(myFarm); */
+
+var matchesAray = [];
+function addMatchesArray(matchesAray)
+{
+	for(var i in matchesAray)
+	{
+			matchesAray[i].matches = [];
+	}
+
+}
+
+addMatchesArray(myFarm);
+console.log(myFarm);
+

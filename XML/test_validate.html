@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<body>
+
+<script src="validate.js"></script>
+
+Name:<input type="text" name="Name" id="NameId"><br><br>
+Age:<input type="text" name="Age" id="AgeId"><br><br>
+Email:<input type="text" name="Email" id="EmailId"><br><br>
+Confirm Email:<input type="text" name="ConEmail" id="ConEmailId"><br><br>
+Country:
+<select name="Country" id="CountryId">
+	<option selected disabled>Choose</option>
+	<option> Australia </option>
+	<option> Brazil </option>
+	<option> China </option>
+	<option> Denmark </option>
+	<option> India </option>
+	<option> Korea </option>
+	<option> Malaysia </option>
+</select>
+<br><br>
+Interest:<textarea rows="4" col="35" id="InterestId" maxlength="200" required></textarea><br><br>
+Branch:<br> <input type="radio" onclick="change()" name="Branch" value="Computer" id="RadioId"> Computer<br> 
+<input type="radio" name="Branch" value="IT" id="RadioId1"> IT <br>
+<input type="radio" name="Branch" value="Electronics" id="RadioId2"> Electronics <br>
+<input type="radio" name="Branch" value="Mechanical" id="RadioId3"> Mechanical <br>
+<br>
+
+Skills:<br>
+<input type="checkbox" name="Skills" value="HTML" id="SkillsId"> HTML <br>
+<input type="checkbox" name="Skills" value="PHP" id="SkillsId1"> PHP <br>
+<input type="checkbox" name="Skills" value="CSS" id="SkillsId2"> CSS <br>
+<input type="checkbox" name="Skills" value="Java" id="SkillsId3"> Java <br>
+<input type="checkbox" name="Skills" value="VLSI" id="SkillsId4"> VLSI <br>
+<input type="checkbox" name="Skills" value="Autocad" id="SkillsId5"> Autocad <br>
+<input type="checkbox" name="Skills" value="Jquery" id="SkillsId6"> Jquery <br>
+<br>
+
+Check all: <input id="checkall" type="checkbox" name="CheckAll" onclick="checkAll()"> <br>
+UnCheck all: <input type="checkbox" onclick="unCheckAll()" name="UnCheckAll" id="UnCheckAllId"><br>
+
+<br>
+<input type="button" name="Submit" value="Submit" onclick="validateForm()">
+<br>
+
+
+</body>
+</html>

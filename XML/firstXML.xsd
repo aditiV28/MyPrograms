@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+attributeFormDefault="unqualified"
+elementFormDefault="qualified">
+
+<xs:element name="StudentDetails">
+ <xs:complexType>
+ <xs:sequence>
+	<xs:element name="Student">
+	 <xs:complexType>  
+	 <xs:sequence>
+		<xs:element name="Name" type="xs:string"/>
+		<xs:element name="Standard" type="xs:integer"/>
+		<xs:element name="Division" type="xs:string"/>
+		<xs:element name="Hobby" type="xs:string"/>
+		<xs:element name="Age" type="xs:integer"/>
+		</xs:sequence>
+	  </xs:complexType>  
+	
+	
+	</xs:element>
+  </xs:sequence>
+	</xs:complexType>
+	</xs:element>
+
+</xs:schema>

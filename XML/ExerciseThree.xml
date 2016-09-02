@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding = "UTF-8"?>  
+
+	<ToDoList>
+		<Day DayOfWeek="Sunday">
+			<TaskOne> Bathe the cat </TaskOne>
+			<TaskTwo> Vacuum house </TaskTwo>
+			<TaskThree> Buy groceries </TaskThree>
+			<TaskFour> Pay Bills </TaskFour>
+		</Day>
+	</ToDoList>
+	
+	

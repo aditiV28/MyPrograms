@@ -1,0 +1,27 @@
+<html>
+<body>
+<script>
+
+function setSomeGlobals()
+{
+	var num = 777;
+	alertNumber = function() {alert(num);}
+	increaseNumber = function() { num++;}
+	setNumber = function(x) { num = x; }
+	hello = function ()
+	{
+	  document.write('Hello');
+	}
+}                                                        // Closure is not a variable it is something we achieve like a concept.
+
+setSomeGlobals();
+alertNumber();
+increaseNumber();
+setNumber(123);
+alertNumber();
+
+hello();
+
+</script>
+</body>
+</html>

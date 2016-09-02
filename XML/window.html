@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form id="myForm">
+<input type="text" id="myText">
+</form>
+
+<form id="MyForm">
+<input type="text" id="MyText">
+
+</form>
+
+
+
+<button onclick="openWindow()"> Open Window </button>
+<button onclick="closeWindow()"> Close window </button>
+<button onclick="screenHeight()"> Screen height </button>
+<button onclick="Assign()"> Go to new page </button>
+<button onclick="History()"> Length of history </button>
+
+<script>
+
+var myWindow;
+
+function openWindow()
+{
+  myWindow = window.open("New window" , "myWindow" , "width=500,height=200");
+  myWindow.document.write("This is my new window");
+  
+}
+
+function closeWindow()
+{
+  myWindow.close();
+}
+
+var x = document.getElementById("myForm");
+x.addEventListener("focus", focusFunction,true);
+x.addEventListener("blur", blurFunction,true);
+function focusFunction() {
+    document.getElementById("myText").style.backgroundColor = "yellow"; 
+}
+function blurFunction() {
+    document.getElementById("myText").style.backgroundColor = ""; 
+}
+
+function screenHeight()
+{
+var y = "Available Height" + screen.availHeight; + "px";
+  document.getElementById("MyForm").innerHTML = y;
+  var y1 = "Available Height" + screen.height; + "px";
+  document.getElementById("MyForm").innerHTML = y1;
+
+  }
+function Assign()
+{
+  location.assign("http://www.java.com");
+}
+function History()
+{
+  alert(window.history.length);
+  
+}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<?php
+
+	$arr_elements = ["ak","al","ajk","ak","q"];
+	print_r($arr_elements);
+
+	$arr_unique = array_unique($arr_elements);
+	print_r($arr_unique);
+
+	$cnt = count($arr_unique);
+
+	$arr_val = array();
+	echo "<br>";
+
+	for($x=0;$x<$cnt;$x++)
+	{
+		array_push($arr_val,0);
+	}
+	print_r($arr_val);
+	echo "<br>";
+	$combine = array_combine($arr_unique,$arr_val);
+	print_r($combine);
+
+foreach($combine as $key=> $value)	{
+	//for($y=0;$y<count($arr_elements);$y++){
+		foreach($arr_elements as $key1=> $value1)	{
+
+			if($key==$value1){
+				$combine[$key]++;
+			}
+
+		}
+	//echo $value;
+
+	}		
+	print_r($combine);
+	
+?>

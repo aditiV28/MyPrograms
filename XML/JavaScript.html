@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<script>
+
+var MyWindow;
+
+function openWindow()
+{
+  MyWindow = window.open("New Window","MyWindow","widht=500,height=300">
+  MyWindow.document.write("<p>This is my new window</p>");
+}
+
+function closeWindow()
+{
+  MyWindow.close();
+}
+
+</script>
+
+
+<button onclick="openWindow()"> Open Window </button>
+<button onclick="closeWindow()"> Close window </button>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<html>
+<body>
+<script>
+
+function myChoice(theObj)
+{
+  theObj.brand = "Toyota";
+  theObj.model="Corolla";
+  theObj.year=1991;
+}
+
+var Car = myChoice('Maruti','SX4',2011);
+console.log(Car);
+function show(car)
+{
+  console.log(car.brand);
+  console.log(car.model);
+  console.log(car.year);
+}
+
+var myCar =
+{
+	brand:"Honda",
+	model:"Accord",
+	year:1987
+};
+show(myCar);
+console.log(myChoice);
+/*console.log(myCar.brand);
+console.log(myCar.model);
+console.log(myCar.year);
+*/
+myChoice(myCar);
+show(myCar);
+
+</script>
+</body>
+</html>

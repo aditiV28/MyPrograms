@@ -1,0 +1,55 @@
+<html>
+<body>
+<script>
+
+/*'use strict'
+
+var Cat={name:"Fluffy",color:"White",'Eye color':"Black"};                           // Object creation using literals
+
+for(var i in Cat)
+
+	document.writeln(i);
+	console.log(Cat['Eye color']); */
+	
+/*var cat = Object.create(Object.prototype,                                 //Object creation using object.create()
+{
+name:{value:"Fluffy"},
+color:{value:"White"}
+}
+);
+for(var i in cat)
+	console.log(i);
+	
+	
+	function Cat(name,color,EyeColor)                                         //Object creation using constructor with this keyword and new keyword
+{
+  this.name=name;
+  this.color=color;
+  this.EyeColor=EyeColor;
+}
+
+var cat1 = new Cat("Fluffy","White","Black");
+console.log(cat1);
+	
+	
+	
+*/
+
+var dog = Object.create(Object.prototype,
+{
+name:{value:"Tom"},
+color:{value:"Brown"}
+}
+);
+
+Object.defineProperty(Dog,'name',{enumerable:false});
+
+for(var i in Dog)
+{
+  document.writeln(i);
+}
+
+
+</script>
+</body>
+</html>
