@@ -1,0 +1,56 @@
+
+<head>
+	<meta charset="UTF-8">
+	<title>Employee Directory</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container-fluid col-sm-8 form-class">
+<form action="" method="POST" name="empForm" role="form" ng-submit="insertInfo(empInfo);">
+	<legend>Insert New Employee Information</legend>
+	
+	<div class="form-group">
+		<label for="">Employee ID</label>
+		<input type="text" name="emp_id"class="form-control" id="" placeholder="Employee ID" ng-model="empInfo.emp_id" autofocus required >
+		<span ng-show="empForm.emp_id.$invalid && empForm.emp_id.$dirty">Employee ID shouldn't be Empty</span>
+	</div>
+	<div class="form-group">
+		<label for="">First Name</label>
+		<input type="text" name="emp_fname" class="form-control" id="" placeholder="First Name" ng-model="empInfo.emp_fname" autofocus required >
+		<span ng-show="empForm.emp_fname.$invalid && empForm.emp_fname.$dirty">First Name Field is Empty</span>
+	</div>
+	<div class="form-group">
+		<label for="">Last Name</label>
+		<input type="text" name="emp_lname" class="form-control" id="" placeholder="Last Name" ng-model="empInfo.emp_lname" autofocus required >
+		<span ng-show="empForm.emp_lname.$invalid && empForm.emp_lname.$dirty">Last Name Field is Empty</span>
+	</div>
+
+	<div class="form-group">
+		
+		<label>Gender:</label>
+		
+		Male<input type="radio" name="emp_gender" value="male" checked="checked" ng-model="empInfo.emp_gender" >
+		Female<input type="radio" name="emp_gender" value="female" checked="" ng-model="empInfo.emp_gender">
+		
+	</div>
+
+	<div class="form-group">
+	<label for="">Department</label>
+	<select name="emp_department" ng-model="empInfo.emp_department" id="input" class="form-control" required="required">
+		<option value="">----Select Any Department----</option>
+		<option value="engineer">Engineer</option>
+		<option value="hr">Human Resource</option>
+		<option value="admin">Admin</option>
+		<option value="is">Information Security</option>
+	</select>
+	</div>
+
+
+
+	
+	<p>{{empInfo}}</p>
+	<input type="submit" ng-disabled="empForm.$invalid" name="submit" class="btn btn-primary">
+</form>
+</div>
+</body>

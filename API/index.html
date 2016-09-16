@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<body ng-controller="myCtrl">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+	<a href="#/"> Home </a>
+	<div ng-view></div>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp',['ngRoute']);
+		app.config(['$routeProvider', function($routeProvider)
+		{
+			$routeProvider
+			.when('/',{
+				templateUrl : 'myTable.html',
+				controller : 'myCtrl'
+			})
+
+			.when('/insert',{
+				templateUrl : 'insert.html',
+			})
+			.otherwise({redirectTo:'/'})
+
+		}])
+
+		app.controller('myCtrl',['$scope','$http', function($scope,$http)
+		{
+			getTable();
+			function getTable()
+			{
+				$http.get('api.php').then(function(response)
+				{
+					$scope.details = response.data;
+					console.log(response);
+				})
+			}
+
+			$scope.insertRecord = function (info)
+			{
+				$data = {'emp_id':info.emp_id,'fname':info.fname,'mname':info.mname,'lname':info.lname,'city':info.city,'salary':info.salary};
+				$http.post('api.php',$data).success(function(response)
+					{
+						if(response==true)
+						{
+							getTable();
+							console.log(response);
+						}
+
+					})
+
+				
+			}
+		}]);
+
+
+	</script>
+
+</body>
+</html>
+

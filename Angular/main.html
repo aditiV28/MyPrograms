@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+	<thead>
+		<th>Employee ID</th>
+		<th>Fname</th>
+		<th>Lname</th>
+		<th>Gender</th>
+		<th>Department</th>
+		<th>Actions</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="data in details">
+			<td>{{data.id}}</td>
+			<td>{{data.fname}}</td>
+			<td>{{data.lname}}</td>
+			<td>{{data.gender}}</td>
+			<td>{{data.department}}</td>
+			<td>
+				<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+				<button class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
