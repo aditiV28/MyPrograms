@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='myapp'>
+	<head>
+		<title>Controllers</title>
+	</head>
+		<body ng-controller = "homecontroller">
+			<h1>Iterate over array </h1>
+			
+				<div ng-repeat="customer in customers" ng-show = "customer.isActive">
+				id : <span>{{customer.id}}</span><br />
+				Is Active : <span ng-bind = "customer.isActive"></span>
+				<hr />
+				
+			</div>
+			    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+				<script type = "text/javascript">
+				
+			 angular.module('myapp',[]).
+				
+				controller('homecontroller',['$scope',function($scope){
+				
+				$scope.customers =[
+				{id : 1, name: "sachya" ,city: "Mumba", isActive:true},
+				{id : 2, name: "suarya" ,city: "Koli",isActive:true},
+				{id : 3, name: "yuvrya" ,city: "WB",isActive:true},
+				{id : 4, name: "virya" ,city: "Delhi",isActive:false} 
+				];
+				}]);
+				</script>
+				</body>
+				</html>
+				
+					

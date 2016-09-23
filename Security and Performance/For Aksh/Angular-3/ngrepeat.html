@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='myapp'>
+	<head>
+		<title>Controllers</title>
+	</head>
+		<body ng-controller = "homecontroller">
+			<h1>Iterate over array </h1>
+			
+				<div ng-repeat="player in players">
+				Name : <span>{{player.name}}</span><br />
+				City : <span ng-bind = "player.city"></span>
+				<hr />
+				
+			</div>
+			    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+				<script type = "text/javascript">
+				
+			 angular.module('myapp',[]).
+				
+				controller('homecontroller',['$scope',function($scope){
+				
+				$scope.players =[
+				{employeeId : 1, name: "sachya" ,city: "Mumba"},
+				{employeeId : 2, name: "suarya" ,city: "Koli"},
+				{employeeId : 3, name: "yuvrya" ,city: "WB"},
+				{employeeId : 4, name: "virya" ,city: "Delhi"},
+				];
+				}]);
+				</script>
+				</body>
+				</html>
+				
+					

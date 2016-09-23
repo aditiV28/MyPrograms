@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html ng-app='myapp'>
+	<head>
+		<title>Controllers</title>
+	</head>
+		<body ng-controller = "MainCtrl as ctrl">
+		
+			<form ng-submit = "ctrl.submit()">
+				<input type = "text" ng-model ="ctrl.user.username">
+				<input type = "password" ng-model ="ctrl.user.password">
+				<input type = "text" ng-model ="submit">
+			</form>
