@@ -1,86 +1,115 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<script type="text/javascript" src="../js/jquery.js"></script>
+<?php
+require 'vendor/autoload.php';
+$router = new AltoRouter();
+$router->setBasePath('/SMS');
+// map homepage
+//echo "here";
+$router->map( 'POST', '/login/', function() {
+  
+    	require_once 'connect.php';
+        $uname = $_POST['user_name'];
+        $umail = $_POST['email'];
+        $upass = $_POST['password'];
 
-	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>Welcome to Chat App</title>
-</head>
-<body>
-
-<h2>LOGIN FORM</h2>
-	<div id="LoginId">
-		<form method="post" action="pages/userLogin.php">
-			<table>
-				<tr>
-					<td>Email:</td><td> <input type="email" name="UserMailLogin" class="form-control"/> </td> </tr>
-				</tr>
-
-				<tr>
-					<td>Password:</td><td> <input type="password" name="UserPasswordLogin" class="form-control" /> </td>		
-
-				</tr>
-
-				<tr>
-					<td></td><td><input type="submit" name="LOG IN" class="btn btn-primary"></td> 
-				</tr>
-
-				<?php
-				if(isset($_GET['error'])){
-					?>
-
-					<tr>
-						<td></td><td><span style="color: red">ERROR LOG IN </span></td>
-					</tr>
-
-					<?php
-				}
-				?>
-
-			</table>
-		</form>
-		
-	</div>
-
-	</br></br></br>
+        if($user->login($uname,$umail,$upass))
+        {
+           // $user->redirect('home.php');
+             $logged="Logged in";
+             echo json_encode($logged);
+        }
+        else
+        {
+            $error = "Wrong Details !";
+            echo json_encode($error);
+        }
+    
+});
 
 
-<h2>SIGN UP FORM</h2>
-	<div id="SignUpId">
-		<form method="post" action="pages/insertUser.php">
-			<table>
-				<tr>
-					<td>Enter your name:</td><td><input type="name" name="UserName" class="form-control"></td>
-				</tr>
-				<tr>
-					<td>Enter your email address:</td><td><input type="email" name="UserMail" class="form-control"></td>
-				</tr>
-				<tr>
-					<td>Enter password:</td><td><input type="password" name="UserPassword" class="form-control"></td>
-				</tr>
+$router->map( 'GET', '/logout/', function( ) {
+ require_once 'connect.php';
+  if($user->logout())
+        {
+           // $user->redirect('home.php');
+             $Loggedout="Loggedout";
+             echo json_encode($Loggedout);
+        }
+        else
+        {
+            $error = "Sorry could not logout!";
+            echo json_encode($error);
+        }
+});
 
-				<tr>
-					<td></td><td><input type="submit" name="SIGN UP" class="btn btn-primary"></td>
-				</tr>
+$router->map('POST' ,'/sendMail/',function(){
+    require_once 'connect.php';
+    $umail = $_POST['email'];
+    if($user->sendMail($umail)){
+        $success = "Mail sent!!";
+        echo json_encode($success);
+    }
+    else{
+        $failure = "Mail not sent!";
+        echo json_encode($failure);
+    }
+});  
 
-				<?php 
-				if(isset($_GET['success'])){
-					?>
-					<tr>
-						<td></td><td><span style="color: green">User Inserted!!</span></td>
-					</tr>
-					<?php
-				}
-				?>
+$router->map( 'POST', '/forgotPass/', function( ) {
+ require_once 'connect.php';
+   
+        //$umail = $_POST['email'];
+        $newpass = $_POST['new_password'];
+        $uname = $_POST['user_name'];
 
-			</table>
-		</form>
+        if($user->forgot_password($uname,$newpass))
+        {
+          
+               $success = "Password changed !";
+            echo json_encode($success);
+             
+        }
+        else
+        {
+            $error = "failed to reset !";
+            echo json_encode($error);
+        }
+});
 
-	</div>
 
-</body>
-</html>
+$router->map( 'POST', '/changePassword/', function( ) {
+  		require_once 'connect.php';
+        $uname = $_POST['user_name'];
+        $umail = $_POST['email'];
+        $upass = $_POST['password'];
+        $newpass = $_POST['new_password'];
+        if($user->change_password($uname,$umail,$upass,$newpass))
+        {
+           // $user->redirect('home.php');
+             $logged="Changed";
+             echo json_encode($logged);
+        }
+        else
+        {
+            $error = "Wrong Details !";
+            echo json_encode($error);
+        }
+  
+});
+/*$match = $router->match();
+if($match) {
+  require $match['target'];
+}
+else {
+  header("HTTP/1.0 404 Not Found");
+  require '404.html';
+}*/
+$match = $router->match();
+
+// call closure or throw 404 status
+if( $match && is_callable( $match['target'] ) ) {
+	call_user_func_array( $match['target'], $match['params'] ); 
+} else {
+	// no route was matched
+	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+}
+?>
