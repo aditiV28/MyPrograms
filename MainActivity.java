@@ -1,4 +1,6 @@
 package com.example.admin.bellezatimes;
+//http://stackoverflow.com/questions/5778187/change-the-look-of-edit-text-box-in-android
+//http://stackoverflow.com/questions/3646415/how-to-create-edittext-with-rounded-corners
 
 /**
  * Created by ADMIN on 01-12-2016.
