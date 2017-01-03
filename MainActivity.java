@@ -7,6 +7,14 @@ package com.example.admin.bellezatimes;
 //http://www.androidhive.info/2013/07/how-to-implement-android-splash-screen-2/
 //https://github.com/cstew/Splash
 
+
+//http://stackoverflow.com/questions/5778187/change-the-look-of-edit-text-box-in-android
+//http://stackoverflow.com/questions/24537517/designing-edittext-with-rounded-corners-inner-shadow
+//http://tips.androidhive.info/2013/09/android-layout-rounded-corner-border/
+//http://www.androidhive.info/2015/09/android-material-design-floating-labels-for-edittext/
+//http://www.viralandroid.com/2016/02/android-material-design-login-form-xml-ui-design.html
+//http://androidcss.com/android/android-login-form-material-design/
+
 /**
  * Created by ADMIN on 01-12-2016.
  */
