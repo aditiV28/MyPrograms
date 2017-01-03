@@ -1,6 +1,11 @@
 package com.example.admin.bellezatimes;
 //http://stackoverflow.com/questions/5778187/change-the-look-of-edit-text-box-in-android
 //http://stackoverflow.com/questions/3646415/how-to-create-edittext-with-rounded-corners
+//http://www.coderefer.com/android-splash-screen-example-tutorial/
+//https://developer.xamarin.com/guides/android/user_interface/creating_a_splash_screen/
+//http://javapapers.com/android/android-splash-screen/
+//http://www.androidhive.info/2013/07/how-to-implement-android-splash-screen-2/
+//https://github.com/cstew/Splash
 
 /**
  * Created by ADMIN on 01-12-2016.
