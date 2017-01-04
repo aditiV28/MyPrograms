@@ -15,6 +15,9 @@ package com.example.admin.bellezatimes;
 //http://www.viralandroid.com/2016/02/android-material-design-login-form-xml-ui-design.html
 //http://androidcss.com/android/android-login-form-material-design/
 
+
+//http://androidexample.com/Create_A_Simple_Listview_-_Android_Example/index.php?view=article_discription&aid=65
+
 /**
  * Created by ADMIN on 01-12-2016.
  */
