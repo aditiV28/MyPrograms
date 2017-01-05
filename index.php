@@ -7,6 +7,7 @@ $router->setBasePath('/SMS');
 $router->map( 'POST', '/login/', function() {
   
     	require_once 'connect.php';
+       // echo json_encode($_POST);
         $uname = $_POST['user_name'];
         $umail = $_POST['email'];
         $upass = $_POST['password'];
@@ -76,13 +77,13 @@ $router->map( 'POST', '/forgotPass/', function( ) {
 });
 
 
-$router->map( 'POST', '/changePassword/', function( ) {
+$router->map( 'POST', '/resetPassword/', function( ) {
   		require_once 'connect.php';
         $uname = $_POST['user_name'];
         $umail = $_POST['email'];
         $upass = $_POST['password'];
         $newpass = $_POST['new_password'];
-        if($user->change_password($uname,$umail,$upass,$newpass))
+        if($user->reset_password($uname,$umail,$upass,$newpass))
         {
            // $user->redirect('home.php');
              $logged="Changed";
@@ -95,6 +96,78 @@ $router->map( 'POST', '/changePassword/', function( ) {
         }
   
 });
+
+$router->map('GET' ,'/checkLogin/',function( ){
+    require_once 'connect.php';
+    if($user->is_loggedin()){
+        $success = "Session logged in";
+        echo json_encode($success);
+        echo json_encode($_SESSION['user_session']);
+    }
+    else{
+         $failure = "Session ended!!";
+        echo json_encode($failure);
+    }
+});
+
+
+
+
+$router->map('GET','/loginCheck/',function( ){
+    require_once 'connect.php';
+    if($news->check_login()){
+        echo json_encode($_SESSION['user_session']);
+    }
+    else{
+        $failure = "Error in session!!";
+        echo json_encode($failure);
+    }
+});
+
+$router->map('POST','/insertFeed/',function( ){
+    require_once 'connect.php';
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+   
+    if($news->insert_feed($title,$description)){
+        $insert = "Inserted!!";
+        echo json_encode($insert);
+    }
+    else{
+        $failure = "Error in insertion!!";
+        echo json_encode($failure);
+    }
+});
+
+$router->map('GET','/showFeed/',function( ){
+   require_once 'connect.php';
+   if($news->show_feed()){
+       $success = "Success";
+       echo json_encode($success);
+   }    
+    else{
+        $failure = "Error in fetching!!";
+        echo json_encode($failure);
+    }
+});
+
+$router->map('POST','/editFeed/',function( ){
+    require_once 'connect.php';
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    if($news->edit_feed($title,$description)){
+        $success = "Updated!";
+        echo json_encode($success);
+    }
+    else{
+         $failure = "Error in updating!!";
+        echo json_encode($failure);
+    }
+});
+
+
+
+
 /*$match = $router->match();
 if($match) {
   require $match['target'];
