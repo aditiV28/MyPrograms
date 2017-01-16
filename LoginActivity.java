@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.admin.bellezatimes.R;
+//import com.example.admin.bellezatimes.R;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -44,10 +44,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_activity);
 
         login = (Button) findViewById(R.id.button4);
-        cancel = (Button) findViewById(R.id.button5);
+        //cancel = (Button) findViewById(R.id.button5);
         etUserName = (EditText) findViewById(R.id.editText);
         etPassword = (EditText) findViewById(R.id.editText2);
-        etEmail = (EditText) findViewById(R.id.editText3);
+        //etEmail = (EditText) findViewById(R.id.editText3);
         tv1 = (TextView) findViewById(R.id.textView);
         tv1.setVisibility(View.GONE);
         login.setOnClickListener(new View.OnClickListener(){
